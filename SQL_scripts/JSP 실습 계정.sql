@@ -1,7 +1,7 @@
 --회원 테이블 생성
 create table t_member(
     id varchar2(10) primary key,
-    pmd varchar2(10),
+    pwd varchar2(10),
     name varchar2(50),
     email varchar2(50),
     joinDate date default sysdate
