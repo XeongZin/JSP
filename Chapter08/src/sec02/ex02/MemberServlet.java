@@ -2,6 +2,7 @@ package sec02.ex02;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -11,23 +12,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class MemberServlet
- */
-@WebServlet("/member4") // 주석 해제
+
+@WebServlet("/Member5")
 public class MemberServlet extends HttpServlet {
-   
-   protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      request.setCharacterEncoding("utf-8");
-      response.setContentType("text/html;charset=utf-8");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doHandle(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doHandle(request, response);
+	}
+
+	private void doHandle(HttpServletRequest request,HttpServletResponse response)  throws ServletException, IOException {
+		// 추가
+		request.setCharacterEncoding("UTF-8");
       
-      PrintWriter out = response.getWriter();
-      MemberDAO dao = new MemberDAO();
-      
-      List memberslist = dao.listMembers();
-      
-      request.setAttribute("membersList", memberslist);
-      RequestDispatcher dispatch = request.getRequestDispatcher("viewMembers");
-      dispatch.forward(request, response);
-   }
+		response.setContentType("text/html;charset=UTF-8");
+		MemberDAO dao=new MemberDAO();
+		
+		List memberList = dao.listMembers();
+		
+		request.setAttribute("memberList", memberList);
+		RequestDispatcher dispatch = request.getRequestDispatcher("viewMembers");
+		dispatch.forward(request, response);
+	}
 }

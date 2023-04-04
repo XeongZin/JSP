@@ -10,9 +10,9 @@ public class MemberVO {
 	private Date joinDate;
 	
 	public MemberVO() {
-		System.out.println("MemberVO ������ ȣ��");
+		System.out.println("MemberVO 생성 완료");
 	}
-	
+
 	public String getId() {
 		return id;
 	}
@@ -36,6 +36,7 @@ public class MemberVO {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 
 	public String getEmail() {
 		return email;
