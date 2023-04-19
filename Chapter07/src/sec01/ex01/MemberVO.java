@@ -10,9 +10,9 @@ public class MemberVO {
 	private Date joinDate;
 	
 	public MemberVO() {
-		System.out.println("MemberVO »ı¼ºÀÚ È£Ãâ");
+		System.out.println("MemberVO ìƒì„±ì í˜¸ì¶œ");
 	}
-	
+
 	public String getId() {
 		return id;
 	}
@@ -52,6 +52,4 @@ public class MemberVO {
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	}
-
-	
 }

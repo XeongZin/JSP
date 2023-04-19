@@ -3,7 +3,6 @@ package sec04.ex01;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,53 +17,41 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginTest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see Servlet#init(ServletConfig)
-	 */
+	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		System.out.println("init ¸Ş¼­µå È£Ãâ");
+		System.out.println("init ë©”ì„œë“œ í˜¸ì¶œ");
 	}
-
-	/**
-	 * @see Servlet#destroy()
-	 */
+	
+	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
-		System.out.println("destroy ¸Ş¼­µå È£Ãâ");
+		System.out.println("destroy ë©”ì„œë“œ í˜¸ì¶œ");
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
-		
 		PrintWriter out = response.getWriter();
 		
 		String id = request.getParameter("user_id");
 		String pw = request.getParameter("user_pw");
 		
-		System.out.println("¾ÆÀÌµğ : "+id);
-		System.out.println("ÆĞ½º¿öµå : "+pw);
+		System.out.println("ì•„ì´ë”” : " + id);
+		System.out.println("ë¹„ë°€ë²ˆí˜¸ : " + pw);
 		
-		if(id!=null &&(id.length()!=0)) {
+		if(id != null && (id.length()!=0)) {
 			out.print("<html>");
 			out.print("<body>");
-			out.print(id + "´Ô!! ·Î±×ÀÎ ÇÏ¼Ì½À´Ï´Ù.");
+			out.print(id + "ë‹˜!! ë¡œê·¸ì¸ í•˜ì…¨ìŠµë‹ˆë‹¤.");
 			out.print("</body>");
 			out.print("</html>");
-		}
-		
+		} 
+		//IDì™€ ë¹„ë°€ë²ˆí˜¸ê°€ ì—†ìœ¼ë©´ ë‹¤ì‹œ ë¡œê·¸ì¸ì°½ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.
 		else {
 			out.print("<html>");
 			out.print("<body>");
-			out.print("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä!!!");
+			out.print("ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš” !!!");
 			out.print("<br>");
-			out.print("<a href='http://localhost:8080/Chapter06/test01/login.html'> ·Î±×ÀÎ Ã¢À¸·Î ÀÌµ¿ </a>");
-			
+			out.print("<a href='http://localhost:8090/Chapter06/test01/login.html'>ë¡œê·¸ì¸ ì°½ìœ¼ë¡œ ì´ë™ </a>");
 			out.print("</body>");
 			out.print("</html>");
 		}

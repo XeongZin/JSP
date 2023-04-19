@@ -15,34 +15,24 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see Servlet#init(ServletConfig)
-	 */
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		System.out.println("init ¸Ş¼Òµå È£Ãâ");
+		System.out.println("init ë©”ì„œë“œ í˜¸ì¶œ");
 	}
 
-	/**
-	 * @see Servlet#destroy()
-	 */
 	public void destroy() {
-		// TODO Auto-generated method stub
-		System.out.println("destroy ¸Ş¼Òµå È£Ãâ");
+		System.out.println("destroy ë©”ì„œë“œ í˜¸ì¶œ");
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setCharacterEncoding("utf-8");
-		//user_id¿Í user_pw¸¦ StringÀÇ ÇüÅÂ·Î ¹Ş¾Æ¿À±â
-		String user_id = request.getParameter("user_id");
-		String user_pw = request.getParameter("user_pw");
+		//ì „ì†¡ëœ ë°ì´í„°ë¥¼ UTF-8ë¡œ ì¸ì½”ë”©
+		request.setCharacterEncoding("UTF-8");
 		
-		//¹Ş¾Æ¿Â user_id¿Í user_pw Ãâ·Â
-		System.out.println("¾ÆÀÌµğ : " + user_id);
-		System.out.println("ºñ¹Ğ¹øÈ£ : " + user_pw);
+		//getParameter()ë¥¼ ì´ìš©í•´ <input> íƒœê·¸ì˜ name ì†ì„± ê°’ìœ¼ë¡œ ì „ì†¡ëœ valueë¥¼ ë°›ì•„ì˜´.
+		String user_id =  request.getParameter("user_id");
+		String user_pw =  request.getParameter("user_pw");
+		
+		System.out.println("ì•„ì´ë”” : " + user_id);
+		System.out.println("ë¹„ë°€ë²ˆí˜¸ : " + user_pw);
 	}
+
 }

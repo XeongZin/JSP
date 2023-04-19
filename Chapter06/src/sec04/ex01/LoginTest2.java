@@ -3,7 +3,6 @@ package sec04.ex01;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,68 +11,58 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class LoginTest2
+ * Servlet implementation class LoginTest
  */
 @WebServlet("/loginTest2")
 public class LoginTest2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see Servlet#init(ServletConfig)
-	 */
+	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		System.out.println("init ¸Ş¼­µå È£Ãâ");
+		System.out.println("init ë©”ì„œë“œ í˜¸ì¶œ");
 	}
-
-	/**
-	 * @see Servlet#destroy()
-	 */
+	
+	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
-		System.out.println("destroy ¸Ş¼­µå È£Ãâ");
+		System.out.println("destroy ë©”ì„œë“œ í˜¸ì¶œ");
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
+		
 		String id = request.getParameter("user_id");
 		String pw = request.getParameter("user_pw");
 		
-		System.out.println("¾ÆÀÌµğ : " + id);
-		System.out.println("ÆĞ½º¿öµå : " + pw);
+		System.out.println("ì•„ì´ë”” : " + id);
+		System.out.println("ë¹„ë°€ë²ˆí˜¸ : " + pw);
 		
-		if(id != null && (id.length() != 0)) {
+		if(id != null && (id.length()!=0)) {
 			if(id.equals("admin")) {
 				out.print("<html>");
 				out.print("<body>");
-				out.print("<font size='12'> °ü¸®ÀÚ·Î ·Î±×ÀÎ ÇÏ¼Ì½À´Ï´Ù.!! </font>");
+				out.print("<font size='12'>ê´€ë¦¬ìë¡œ ë¡œê·¸ì¸ í•˜ì…¨ìŠµë‹ˆë‹¤!! </font>");
 				out.print("<br>");
-				out.print("<input type=button value='È¸¿øÁ¤º¸ ¼öÁ¤ÇÏ±â'  /");
-				out.print("<input type=button value='È¸¿øÁ¤º¸ »èÁ¦ÇÏ±â'  /");
+				out.print("<input type=button value='íšŒì›ì •ë³´ ìˆ˜ì •í•˜ê¸°' />");
+				out.print("<input type=button value='íšŒì›ì •ë³´ ì‚­ì œí•˜ê¸°' />");
 				out.print("</body>");
 				out.print("</html>");
-			}
-			else {
+			}else {
 				out.print("<html>");
 				out.print("<body>");
-				out.print(id + "´Ô!! ·Î±×ÀÎ ÇÏ¼Ì½À´Ï´Ù.");
+				out.print(id + "ë‹˜!! ë¡œê·¸ì¸ í•˜ì…¨ìŠµë‹ˆë‹¤.");
 				out.print("</body>");
 				out.print("</html>");
 			}
-		}
+		} 
+		//IDì™€ ë¹„ë°€ë²ˆí˜¸ê°€ ì—†ìœ¼ë©´ ë‹¤ì‹œ ë¡œê·¸ì¸ì°½ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.
 		else {
 			out.print("<html>");
 			out.print("<body>");
-			out.print("ID¿Í ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä!!");
+			out.print("ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš” !!!");
 			out.print("<br>");
-			out.print("<a href='http://localhost:8080/Chapter06/test01/login.html'> ·Î±×ÀÎÃ¢À¸·Î ÀÌµ¿ </a>");
-			
+			out.print("<a href='http://localhost:8090/Chapter06/test01/login.html'>ë¡œê·¸ì¸ ì°½ìœ¼ë¡œ ì´ë™ </a>");
 			out.print("</body>");
 			out.print("</html>");
 		}

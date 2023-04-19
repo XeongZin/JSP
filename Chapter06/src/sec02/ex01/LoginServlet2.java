@@ -3,7 +3,6 @@ package sec02.ex01;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,50 +11,42 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class LoginServlet2
+ * Servlet implementation class LoginServlet
  */
 @WebServlet("/login2")
 public class LoginServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see Servlet#init(ServletConfig)
-	 */
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		System.out.println("init �޼ҵ� ȣ��");
+		System.out.println("init 메서드 호출");
 	}
 
-	/**
-	 * @see Servlet#destroy()
-	 */
 	public void destroy() {
-		// TODO Auto-generated method stub
-		System.out.println("destroy �޼ҵ� ȣ��");
+		System.out.println("destroy 메서드 호출");
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setCharacterEncoding("utf-8");
+		//전송된 데이터를 UTF-8로 인코딩
+		request.setCharacterEncoding("UTF-8");
+		
+		//setContentType()을 이용해 응답할 데이터 종류가 HTML임을 설정
 		response.setContentType("text/html;charset=utf-8");
-	
+		
+		//HttpServeltREsponse 객체의 getWriter()를 이용해 출력 스트림 PrintWriter 객체를 받아옴
 		PrintWriter out = response.getWriter();
 		
-		String user_id = request.getParameter("user_id");
-		String user_pw = request.getParameter("user_pw");
+		//getParameter()를 이용해 <input> 태그의 name 속성 값으로 전송된 value를 받아옴.
+		String id =  request.getParameter("user_id");
+		String pw =  request.getParameter("user_pw");
 		
+		//브라우저로 출력할 데이터를 문자열로 연결해서 HTML태그로 만듦
 		String data = "<html>";
 		data += "<body>";
-		data += "���̵� : " + user_id;
+		data += "아이디 : " + id;
 		data += "<br>";
-		data += "��й�ȣ : " + user_pw;
-		data += "<br>";
+		data += "비밀번호 : " + pw;
 		data += "</body>";
 		data += "</html>";
-		
 		out.print(data);
 	}
 

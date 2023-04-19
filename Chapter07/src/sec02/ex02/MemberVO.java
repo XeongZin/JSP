@@ -6,13 +6,6 @@ public class MemberVO {
 	private String id;
 	private String pwd;
 	private String name;
-	private String email;
-	private Date joinDate;
-	
-	public MemberVO() {
-		System.out.println("MemberVO »ı¼ºÀÚ È£Ãâ");
-	}
-	
 	public String getId() {
 		return id;
 	}
@@ -53,5 +46,10 @@ public class MemberVO {
 		this.joinDate = joinDate;
 	}
 
+	private String email;
+	private Date joinDate;
 	
+	public MemberVO() {
+		System.out.println("MemberVO ìƒì„±ì í˜¸ì¶œ");
+	}
 }

@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta charset="UTF-8">
-	<title>로그인 - 김성진</title>
+		<meta charset="UTF-8">
+		<script type="text/javascript">
+			function fn_validate() {
+				//<form>태그의 name 속성으로 <form> 태그 객체를 받아 옵니다.
+				var frmLogin = document.frmLogin;
+				
+				//<form>태그 내 <input> 태그의 name 속성으로 입력한 ID와 비밀번호를 받아 옵니다.
+				var user_id = frmLogin.user_id.value;
+				var user_pw = frmLogin.user_pw.value;
+				
+				if((user_id.length == 0 || user_id == "") || (user_pw.length == 0 || user_pw == "")) {
+					alert("아이디와 비밀번호는 필수 입니다.");
+				} else {
+					frmLogin.method = "post";
+					frmLogin.action = "login5";
+					frmLogin.submit();
+				}
+			}
+		</script>
+		<title>로그인 창</title>
 	</head>
-	
 	<body>
-		<h1>브라우저로 응답하기</h1>
-		<form name="formLogin" method="get" action="login2" encType="UTF-8">
-			아이디 : <input type="text" name="user_id">
-			<br>
-			비밀번호 : <input type="password" name="user_pw">
-			<br><br>
-			
-			<input type="submit" value="로그인">
-			<input type="reset" value="다시입력">
+		<form name="frmLogin" method="post" action="login" encType="UTF-8">
+			아이디 : <input type="text" name="user_id"><br>
+			비밀번호 : <input type="password" name="user_pw"><br>
+			<input type="button" onClick="fn_validate()" value="로그인">
+			<input type="reset" value="다시 입력">
+			<!-- <hidden>태그를 이용해 화면에는 보이지 않게 하면서 값을 서블릿으로 전송 -->
+			<input type="hidden" name="user_address" value="부산시 사상구"/>
 		</form>
 	</body>
 </html>
